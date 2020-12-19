@@ -89,4 +89,4 @@ $up->uploadMultipleFiles('arquivos', null, true);
 
 ## License
 
-Solital uses [MIT](https://github.com/brenno-duarte/uplayer/blob/master/LICENSE) license by default.
+[MIT](https://github.com/brenno-duarte/uplayer/blob/master/LICENSE)
