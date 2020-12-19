@@ -1,0 +1,13 @@
+{
+    "name": "brenno-duarte/uplayer",
+    "description": "Componente PHP para realizar o upload de arquivos",
+    "license": "MIT",
+    "require": {
+        "php": ">= 7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Uplayer\\": "src/"
+        }
+    }
+}
