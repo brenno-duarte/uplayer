@@ -15,6 +15,9 @@ composer require brenno-duarte/uplayer
 
 ## Inicializando
 
+Instancie a classe `Uplayer` especificando o diretório onde os arquivos irão 
+após serem enviados por upload.
+
 ```php
 require_once 'vendor/autoload.php';
 
@@ -27,7 +30,7 @@ $up = new Uplayer('DIRETORIO_DOS_ARQUIVOS');
 
 ### Upload de um único arquivo
 
-Garanta que seu formulário esteja desta maneira.
+Garanta que seu formulário esteja desta maneira:
 
 ```html
 <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -37,19 +40,20 @@ Garanta que seu formulário esteja desta maneira.
 </form>
 ```
 
-No arquivo `upload.php`, utilize o método `UploadFile`.
-
-O primeiro parâmetro representa o `name` do formulário. O segundo contém um array com as extensões permitidas.
+No arquivo `upload.php`, utilize o método `UploadFile` para fazer o upload de um único arquivo. 
+No parâmetro do método, passe o `name` do seu formulário.
 
 ```php
 $res = $up->uploadFile('arquivo');
 
-var_dump($res);
+var_dump($res); //return `true`
 ```
+
+Se o upload for feito sem nenhum problema, o método deverá retornar `true`.
 
 ### Upload de multiplos arquivos
 
-Seu formulário deve estar desta maneira.
+Para fazer o upload de múltiplos arquivos, seu formulário deve estar desta maneira:
 
 ```html
 <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -59,7 +63,7 @@ Seu formulário deve estar desta maneira.
 </form>
 ```
 
-E no `upload.php`.
+E no `upload.php`, use o método `uploadMultipleFiles` para fazer o upload de vários arquivos.
 
 ```php
 $res = $up->uploadMultipleFiles('arquivos');
@@ -69,22 +73,14 @@ var_dump($res);
 
 ## Limitando as extensões dos arquivos
 
-Caso queira realizar o upload de apenas alguns tipos de arquivos, você poderá utilizar o segundo parâmetro como array, especificando os tipos de arquivos permitidos.
+Caso queira realizar o upload de arquivos com extensões específicas, você poderá utilizar o segundo 
+parâmetro como array, especificando os tipos de arquivos permitidos.
 
 ```php
-$up->uploadFile('arquivo', ['png', 'jpg']);
+$allowed_extensions = ['png', 'jpg'];
 
-$up->uploadMultipleFiles('arquivos', ['png', 'jpg']);
-```
-
-## Nomes únicos para cada arquivo
-
-Para gerar nomes únicos para cada arquivo, você poderá passar `true` no último parâmetro.
-
-```php
-$up->uploadFile('arquivo', null, true);
-
-$up->uploadMultipleFiles('arquivos', null, true);
+$up->uploadFile('arquivo', $allowed_extensions);
+$up->uploadMultipleFiles('arquivos', $allowed_extensions);
 ```
 
 ## License

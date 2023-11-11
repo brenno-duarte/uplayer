@@ -3,7 +3,7 @@
     "description": "Componente PHP para realizar o upload de arquivos",
     "license": "MIT",
     "require": {
-        "php": ">= 7.2"
+        "php": "^8.2"
     },
     "autoload": {
         "psr-4": {
