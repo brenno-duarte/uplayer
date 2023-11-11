@@ -13,6 +13,10 @@ Componente PHP para realizar o upload de arquivos
 composer require brenno-duarte/uplayer
 ```
 
+## Requisitos
+
+PHP >= 8.2
+
 ## Inicializando
 
 Instancie a classe `Uplayer` especificando o diretório onde os arquivos irão 
